@@ -8,13 +8,7 @@ RUN \
   rm -rf /var/lib/apt/lists/*
 
 # Create a user
-RUN export uid=1000 gid=1000 && \
-    mkdir -p /home/chrome && \
-    echo "chrome:x:${uid}:${gid}:Chrome,,,:/home/chrome:/bin/bash" >> /etc/passwd && \
-    echo "chrome:x:${uid}:" >> /etc/group && \
-    echo "chrome ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/chrome && \
-    chmod 0440 /etc/sudoers.d/chrome && \
-    chown ${uid}:${gid} -R /home/chrome
+RUN adduser chrome
 
 USER chrome
 ENV HOME /home/chrome
