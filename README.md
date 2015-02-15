@@ -1,4 +1,4 @@
-Run chrome.
+Chrome on docker over X11.
 
 First Run:
 
